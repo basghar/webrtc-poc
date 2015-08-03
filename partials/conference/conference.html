@@ -1,0 +1,9 @@
+<div class="col-md-12" ng-controller="ConferenceCtrl">
+    <div class="video-container" ng-repeat="p in conferenceInfo.participants  | orderBy:'id'">
+        <button ng-if="p.local" ng-click="changeLocalPrivacy()" class="btn btn-default">
+            <i class="fa privacy" ng-class="p.privacy?'fa-eye-slash':'fa-eye'"></i>
+        </button>
+        <span class="pid">ID:{{p.id}}</span>
+        <canvas video-src="p.video" privacy="p.privacy"></canvas>
+    </div>
+</div>
